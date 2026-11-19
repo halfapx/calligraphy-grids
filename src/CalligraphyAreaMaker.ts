@@ -1,5 +1,6 @@
 import {
   GridMaker,
+  type DividerLineStyle,
   type IGridMaker,
   type PathInfo,
   type GridPageBasicOptions,
@@ -24,6 +25,7 @@ export type CalligraphyAreaPageExtendedOptions = GridPageExtendedOptions & {
   slantAngleGap?: number;
   slantLineMinLength?: number;
   addDividerLines?: boolean;
+  dividerLineStyle?: DividerLineStyle;
 };
 
 export type CalligraphyAreaPageTechOptions = GridPageTechnicalOptions;
@@ -62,6 +64,7 @@ export class CalligraphyAreaPage
       slantAngle: 55, // must be below 90
       slantAngleGap: 10,
       addDividerLines: true,
+      dividerLineStyle: 'dotted',
       slantLineMinLength: 10,
     };
     if ('color' in options) {
@@ -80,9 +83,11 @@ export class CalligraphyAreaPage
 
     this.#pathEls.forEach((key) => {
       const strokeWidth = this.getStrokeWidthForKey(key);
+      const isDottedDivider =
+        key === 'divider' && this.#config.dividerLineStyle === 'dotted';
       const strokeDasharray =
-        key === 'divider' ? `0, ${strokeWidth * 3}` : undefined;
-      const strokeLinecap = key === 'divider' ? 'round' : undefined;
+        isDottedDivider ? `0, ${strokeWidth * 3}` : undefined;
+      const strokeLinecap = isDottedDivider ? 'round' : undefined;
       const declaration: PathInfo = this.initializePathInfo(
         key,
         this.#config.lineColor,
@@ -90,6 +95,12 @@ export class CalligraphyAreaPage
         strokeDasharray,
         strokeLinecap,
       );
+      if (
+        this.#config.dividerLineStyle === 'tonal' &&
+        (key === 'slant' || key === 'divider')
+      ) {
+        declaration.strokeOpacity = key === 'divider' ? 0.1 : 0.3;
+      }
       this.#paths.push(declaration);
     });
   }
@@ -204,6 +215,7 @@ export class CalligraphyAreaPage
           id="${pathObj.id}"
           stroke="${pathObj.stroke}"
           stroke-width="${pathObj.strokeWidth}"
+          ${pathObj.strokeOpacity !== undefined ? `stroke-opacity="${pathObj.strokeOpacity}"` : ''}
           ${pathObj.strokeDasharray ? `stroke-dasharray="${pathObj.strokeDasharray}"` : ''}
           ${pathObj.strokeLinecap ? `stroke-linecap="${pathObj.strokeLinecap}"` : ''}
         />`;

@@ -5,6 +5,7 @@ export { GraphGridPage } from './GraphGridMaker';
 export { GridMaker } from './GridMaker';
 
 export type {
+  DividerLineStyle,
   GridPageBasicOptions,
   GridPageExtendedOptions,
   GridPageTechnicalOptions,

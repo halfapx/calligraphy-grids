@@ -28,12 +28,15 @@ export interface PathInfo {
   d: string;
   id: string;
   strokeWidth: number;
+  strokeOpacity?: number;
   strokeDasharray?: string;
   strokeLinecap?: string;
   stroke?: string;
 }
 
 export type OutputType = 'dom' | 'string';
+
+export type DividerLineStyle = 'dotted' | 'tonal';
 
 export type RequiredFields<T> = { [K in keyof T]-?: T[K] };
 
