@@ -95,12 +95,6 @@ export class CalligraphyAreaPage
         strokeDasharray,
         strokeLinecap,
       );
-      if (
-        this.#config.dividerLineStyle === 'tonal' &&
-        (key === 'slant' || key === 'divider')
-      ) {
-        declaration.strokeOpacity = key === 'divider' ? 0.1 : 0.3;
-      }
       this.#paths.push(declaration);
     });
   }
@@ -215,7 +209,8 @@ export class CalligraphyAreaPage
           id="${pathObj.id}"
           stroke="${pathObj.stroke}"
           stroke-width="${pathObj.strokeWidth}"
-          ${pathObj.strokeOpacity !== undefined ? `stroke-opacity="${pathObj.strokeOpacity}"` : ''}
+          ${this.#config.dividerLineStyle === 'tonal' && pathObj.key === 'divider' ? 'stroke-opacity="0.1"' : ''}
+          ${this.#config.dividerLineStyle === 'tonal' && pathObj.key === 'slant' ? 'stroke-opacity="0.3"' : ''}
           ${pathObj.strokeDasharray ? `stroke-dasharray="${pathObj.strokeDasharray}"` : ''}
           ${pathObj.strokeLinecap ? `stroke-linecap="${pathObj.strokeLinecap}"` : ''}
         />`;

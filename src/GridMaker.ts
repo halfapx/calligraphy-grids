@@ -28,7 +28,6 @@ export interface PathInfo {
   d: string;
   id: string;
   strokeWidth: number;
-  strokeOpacity?: number;
   strokeDasharray?: string;
   strokeLinecap?: string;
   stroke?: string;
