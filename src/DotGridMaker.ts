@@ -1,6 +1,6 @@
 import {
   GridMaker,
-  IGridMaker,
+  type IGridMaker,
   type GridPageBasicOptions,
   type GridPageExtendedOptions,
   type GridPageTechnicalOptions,

@@ -1,7 +1,7 @@
 import {
   GridMaker,
-  IGridMaker,
-  PathInfo,
+  type IGridMaker,
+  type PathInfo,
   type GridPageBasicOptions,
   type GridPageExtendedOptions,
   type GridPageTechnicalOptions,
