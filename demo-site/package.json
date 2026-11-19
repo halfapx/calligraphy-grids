@@ -1,5 +1,5 @@
 {
-  "name": "demo-site",
+  "name": "calligraphy-grids-demo-site",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
   }
 }
