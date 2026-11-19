@@ -4,3 +4,25 @@ svg {
   max-width: 100vmin;
   max-height: 80vmin;
 }
+
+.divider-previews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+}
+
+.divider-previews figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.divider-previews figcaption {
+  text-align: center;
+  font-weight: bold;
+}
+
+.divider-previews svg {
+  width: 100%;
+  max-height: none;
+}

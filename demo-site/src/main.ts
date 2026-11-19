@@ -8,6 +8,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div data-previews></div>
   <h3>Square Mini Previews:</h3>
   <div data-previews-mini></div>
+  <h3>Divider Lines: Dotted and Tonal</h3>
+  <div data-divider-previews class="divider-previews"></div>
 `
 
 const gridConfigShared: GridPageConfig = {
@@ -66,3 +68,28 @@ previewWrapper!.innerHTML += new CalligraphyLinePage().makeSVGString();
 previewWrapper!.innerHTML += new CalligraphyAreaPage().makeSVGString();
 previewWrapper!.innerHTML += new DotGridPage().makeSVGString();
 previewWrapper!.innerHTML += new GraphGridPage().makeSVGString();
+
+const dividerPreviewWrapper = document.querySelector('[data-divider-previews]')!;
+const dividerPreviewConfig: GridPageConfig = {
+  documentWidth: 100,
+  documentHeight: 100,
+  addTitle: false,
+  textFontSize: 0,
+  textLineHeight: 0,
+};
+
+for (const Page of [CalligraphyLinePage, CalligraphyAreaPage]) {
+  for (const dividerLineStyle of ['dotted', 'tonal'] as const) {
+    const example = document.createElement('figure');
+    const caption = document.createElement('figcaption');
+    caption.textContent = `${Page === CalligraphyLinePage ? 'Calligraphy Line' : 'Calligraphy Area'}: ${dividerLineStyle}`;
+    example.appendChild(caption);
+    example.appendChild(new Page({
+      ...dividerPreviewConfig,
+      gridStrokeWidth: 0.1,
+      gridBaseLineStrokeWidth: 0.3,
+      dividerLineStyle,
+    }).makeSVG());
+    dividerPreviewWrapper.appendChild(example);
+  }
+}

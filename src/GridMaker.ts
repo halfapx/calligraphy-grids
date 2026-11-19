@@ -35,6 +35,8 @@ export interface PathInfo {
 
 export type OutputType = 'dom' | 'string';
 
+export type DividerLineStyle = 'dotted' | 'tonal';
+
 export type RequiredFields<T> = { [K in keyof T]-?: T[K] };
 
 export type GridPageConfig = GridPageBasicOptions &
