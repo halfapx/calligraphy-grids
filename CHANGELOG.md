@@ -1,3 +1,11 @@
+# [1.0.0-beta.5](https://github.com/halfapx/calligraphy-grids/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2026-11-19)
+
+### Bug Fixes
+
+* **area:** fix parallel line logic ([0b1be47](https://github.com/halfapx/calligraphy-grids/commit/0b1be471d2c1f0f00e97770deb82230fbbaac69a))
+* **dependencies:** correct CommonJS exports and update dependencies ([#5](https://github.com/halfapx/calligraphy-grids/issues/5)) ([14be3e8](https://github.com/halfapx/calligraphy-grids/commit/14be3e8b58034261e252f2d16a0140332c9231e0))
+* **docs:** update readme ([229ccf8](https://github.com/halfapx/calligraphy-grids/commit/229ccf8669156f91e4f1f750322b315a1bd3aae1))
+
 # [1.0.0-beta.4](https://github.com/mynimi/calligraphy-grids/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2025-06-09)
 
 
