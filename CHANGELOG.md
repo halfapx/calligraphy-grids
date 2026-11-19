@@ -1,3 +1,9 @@
+# [1.0.0-beta.6](https://github.com/halfapx/calligraphy-grids/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2026-11-19)
+
+### Features
+
+* **calligraphy:** add dividerLineStyle: 'tonal'|'dotted' ([#6](https://github.com/halfapx/calligraphy-grids/issues/6)) ([f0b475d](https://github.com/halfapx/calligraphy-grids/commit/f0b475d540ff261224d1b557d7158d82eb4e4496))
+
 # [1.0.0-beta.5](https://github.com/halfapx/calligraphy-grids/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2026-11-19)
 
 ### Bug Fixes
